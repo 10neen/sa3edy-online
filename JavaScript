@@ -1,0 +1,39 @@
+<script>
+  // === تعريف العناصر الأساسية في الصفحة ===
+  const overlay = document.querySelector('.overlay'); // الطبقة الرئيسية اللي فيها الأيقونات والعرض
+  const sections = document.querySelectorAll('.section'); // الأقسام الداخلية (من نحن - الخدمات - تواصل)
+  const links = document.querySelectorAll('.navbar-links a'); // روابط شريط التنقل العلوي
+
+  // === التعامل مع الضغط على روابط التنقل ===
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // منع التنقل التلقائي
+      const targetId = this.getAttribute('href').substring(1); // استخراج اسم القسم من الرابط
+
+      if (targetId === 'home') {
+        // عرض الواجهة الرئيسية وإخفاء باقي الأقسام
+        overlay.style.display = 'grid';
+        sections.forEach(sec => sec.style.display = 'none');
+      } else {
+        // عرض القسم المطلوب فقط وإخفاء الباقي
+        overlay.style.display = 'none';
+        sections.forEach(sec => {
+          sec.style.display = sec.id === targetId ? 'block' : 'none';
+        });
+      }
+
+      // تمرير ناعم لأعلى الصفحة
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  function showMessage(text) {
+  const messageBox = document.getElementById('service-message');
+  const messageText = document.getElementById('message-text');
+  messageText.textContent = text;
+  messageBox.style.display = 'block';
+}
+
+  
+
+</script>
