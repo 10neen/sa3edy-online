@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
-  background: url("assets/promo-1.PNG") no-repeat center center fixed;
+  background: url("assets/IMGE/promo-1.PNG") no-repeat center center fixed;
   background-size: cover;
   color: #fefefe;
   overflow-x: hidden;
@@ -365,3 +365,14 @@ footer a:hover {
   font-weight: bold;
 }
 
+.product-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.product-item img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
