@@ -1,4 +1,3 @@
-
 /* === الأساسيات === */
 body {
   margin: 0;
@@ -7,13 +6,7 @@ body {
   background-size: cover;
   color: #fefefe;
   overflow-x: hidden;
-  filter: contrast(1.1) brightness(1.05);
-  animation: zoomIn 10s ease-in-out infinite alternate;
-}
-
-@keyframes zoomIn {
-  0% { background-size: 100%; }
-  100% { background-size: 105%; }
+  filter: contrast(1.05) brightness(1.05);
 }
 
 body::before {
@@ -65,7 +58,10 @@ body::before {
   display: block;
   margin: 20px auto;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+.section-image:hover {
+  transform: scale(1.02);
 }
 
 /* === الهيدر === */
@@ -82,26 +78,6 @@ h1 {
   color: #facc15;
   margin: 15px 0;
   font-size: 24px;
-}
-
-/* === الأزرار === */
-.section-buttons {
-  text-align: center;
-  margin: 20px 0;
-}
-.section-buttons .btn {
-  display: inline-block;
-  margin: 5px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-.section-buttons .btn:hover {
-  background-color: #0056b3;
 }
 
 /* === زر واتساب ثابت === */
@@ -209,7 +185,6 @@ footer {
     background: url("assets/IMGE/promo-1.PNG") no-repeat center top;
     background-size: 100% auto;
     background-attachment: scroll;
-    animation: none;
     filter: none;
   }
 
@@ -264,11 +239,10 @@ footer {
   text-align: center;
   cursor: pointer;
   box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease;
 }
 .service-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  transform: scale(1.02);
 }
 .service-card h3 {
   color: #facc15;
@@ -290,19 +264,10 @@ footer {
   width: 100%;
   border-radius: 8px;
   object-fit: cover;
+  transition: transform 0.2s ease;
 }
-
-/* === تأثير دخول ناعم للعناصر === */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.product-item img:hover {
+  transform: scale(1.02);
 }
 
 /* === كلاس مميز للنصوص المهمة === */
@@ -314,16 +279,7 @@ footer {
   font-weight: bold;
 }
 
-.icons-row img {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  border-radius: 6px;
-  background-color: rgba(255,255,255,0.05);
-  padding: 6px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
+/* === عنوان وأيقونات الشركات === */
 .brand-icons {
   text-align: center;
   margin: 40px 0 20px;
@@ -351,12 +307,8 @@ footer {
   border-radius: 6px;
   background-color: rgba(255,255,255,0.05);
   padding: 6px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease;
 }
-
-.fade-in-icons {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease forwards;
-  animation-delay: 0.3s;
+.icons-row img:hover {
+  transform: scale(1.05);
 }
