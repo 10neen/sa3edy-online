@@ -6,7 +6,6 @@ body {
   background-size: cover;
   color: #fefefe;
   overflow-x: hidden;
-  filter: contrast(1.05) brightness(1.05);
 }
 
 body::before {
@@ -33,12 +32,10 @@ body::before {
 /* === الأقسام === */
 .section {
   display: none;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
   margin: 40px 0;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  backdrop-filter: blur(4px);
 }
 .section h2 {
   color: #facc15;
@@ -58,10 +55,6 @@ body::before {
   display: block;
   margin: 20px auto;
   border-radius: 12px;
-  transition: transform 0.2s ease;
-}
-.section-image:hover {
-  transform: scale(1.02);
 }
 
 /* === الهيدر === */
@@ -80,24 +73,6 @@ h1 {
   font-size: 24px;
 }
 
-/* === زر واتساب ثابت === */
-.whatsapp-fixed {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: white;
-  padding: 12px 16px;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  z-index: 999;
-}
-.whatsapp-fixed:hover {
-  background-color: #1da851;
-}
-
 /* === الفوتر === */
 footer {
   text-align: center;
@@ -113,24 +88,18 @@ footer {
   margin-bottom: 10px;
 }
 .footer-links a {
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 16px;
   font-weight: bold;
   text-decoration: none;
-  color: #fefefe;
-}
-.footer-links .map {
-  background-color: #34d399;
-}
-.footer-links .whatsapp {
-  background-color: #25D366;
-}
-.footer-links .facebook {
-  background-color: #1877F2;
+  color: #ffffff;
+  background-color: #1877f2;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .footer-links a:hover {
-  opacity: 0.85;
+  background-color: #145dbf;
+  color: #facc15;
 }
 
 /* === شريط التنقل العلوي === */
@@ -139,13 +108,13 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 12px 24px;
-  background: rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.01);
+  backdrop-filter: blur(2px);
   position: sticky;
   top: 0;
   z-index: 1000;
   flex-wrap: wrap;
+  border-bottom: none;
 }
 .navbar-brand {
   display: flex;
@@ -154,7 +123,6 @@ footer {
   font-size: 24px;
   font-weight: bold;
   color: #facc15;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 .navbar-logo {
   width: 40px;
@@ -172,8 +140,8 @@ footer {
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
-  color: #fefefe;
-  transition: color 0.3s ease;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
 }
 .navbar-links li a:hover {
   color: #facc15;
@@ -183,9 +151,8 @@ footer {
 @media (max-width: 768px) {
   body {
     background: url("assets/IMGE/promo-1.PNG") no-repeat center top;
-    background-size: 100% auto;
+    background-size: cover;
     background-attachment: scroll;
-    filter: none;
   }
 
   .overlay {
@@ -208,6 +175,7 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     padding: 10px 16px;
+    background: rgba(0, 0, 0, 0.01);
   }
 
   .navbar-links {
@@ -223,6 +191,16 @@ footer {
     flex-direction: column;
     gap: 10px;
   }
+
+  .footer-links a {
+    font-size: 18px;
+    padding: 14px 24px;
+  }
+
+  .invoice-btn {
+    font-size: 22px;
+    padding: 16px 32px;
+  }
 }
 
 /* === كروت الخدمات === */
@@ -233,16 +211,10 @@ footer {
   margin-top: 30px;
 }
 .service-card {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   padding: 20px;
   text-align: center;
-  cursor: pointer;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease;
-}
-.service-card:hover {
-  transform: scale(1.02);
 }
 .service-card h3 {
   color: #facc15;
@@ -254,22 +226,6 @@ footer {
   font-size: 16px;
 }
 
-/* === صور المعرض === */
-.product-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-}
-.product-item img {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-  transition: transform 0.2s ease;
-}
-.product-item img:hover {
-  transform: scale(1.02);
-}
-
 /* === كلاس مميز للنصوص المهمة === */
 .highlight {
   background-color: #facc15;
@@ -279,18 +235,7 @@ footer {
   font-weight: bold;
 }
 
-/* === عنوان وأيقونات الشركات === */
-.brand-icons {
-  text-align: center;
-  margin: 40px 0 20px;
-}
-.brand-icons h3 {
-  font-size: 22px;
-  color: #facc15;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-}
-
+/* === أيقونات الشركات === */
 .icons-row {
   display: flex;
   justify-content: center;
@@ -299,7 +244,6 @@ footer {
   row-gap: 12px;
   margin-bottom: 40px;
 }
-
 .icons-row img {
   width: 64px;
   height: 64px;
@@ -307,8 +251,59 @@ footer {
   border-radius: 6px;
   background-color: rgba(255,255,255,0.05);
   padding: 6px;
-  transition: transform 0.2s ease;
 }
-.icons-row img:hover {
-  transform: scale(1.05);
+
+/* === زر الحاسبة الذكية === */
+.invoice-box {
+  background-color: #f9f9f9;
+  border: 2px solid #d4af37;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 30px auto;
+  max-width: 400px;
+}
+.invoice-title {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 8px;
+}
+.invoice-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+
+.invoice-btn {
+  display: inline-block;
+  background-color: #1877f2;
+  color: #fff;
+  font-size: 20px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.invoice-btn:hover {
+  background-color: #145dbf;
+  color: #facc15;
+}
+
+/* === زر رابط صور المعرض === */
+.gallery-btn {
+  display: inline-block;
+  background-color: #facc15;
+  color: #0f172a;
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.gallery-btn:hover {
+  background-color: #eab308;
+  color: #fff;
 }
