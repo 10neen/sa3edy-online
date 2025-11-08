@@ -104,33 +104,47 @@ footer {
   transform: scale(1.05);
 }
 
+
+
 /* === شريط التنقل العلوي === */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 24px;
-  background: rgba(0, 0, 0, 0.01);
-  backdrop-filter: blur(2px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  flex-wrap: wrap;
-  border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background: rgba(0, 0, 0, 0.1); /* زيادة شفافية الخلفية قليلاً لتحسين الرؤية */
+    backdrop-filter: blur(5px); /* زيادة التأثير الضبابي */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;
+    border-bottom: none;
 }
+
 .navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #facc15;
+    /* تم تحسينه لضمان محاذاة النص والشعار بشكل مثالي */
+    display: flex;
+    align-items: center; /* يضمن محاذاة الشعار والنص عمودياً في المنتصف */
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #facc15;
 }
+
 .navbar-logo {
-  width: 40px;
-  height: auto;
-  object-fit: contain;
+    /* تأكد من أن الشعار الدائري يظهر بشكل مناسب */
+    width: 45px; /* تم زيادته قليلاً ليتناسب مع حجم الخط 24px */
+    height: 45px; /* يجب أن تكون الـ width والـ height متساويتين للشكل الدائري */
+    object-fit: cover; /* لضمان أن الصورة تملأ الأبعاد بدون تشوه */
+    border-radius: 50%; /* هذا ضروري إذا كان الشعار دائرياً */
+    /* قد تحتاج إلى إزالة هذا إذا كان الشعار يحمل بالفعل إطاراً دائرياً */
+    /* border: 2px solid #facc15; */ 
 }
+/* لا داعي لتغيير باقي التنسيقات في هذا الجزء */
+
+
+
+
 .navbar-links {
   list-style: none;
   display: flex;
@@ -149,6 +163,10 @@ footer {
 .navbar-links li a:hover {
   color: #facc15;
 }
+
+
+
+
 
 /* === استجابة للموبايل === */
 @media (max-width: 768px) {
