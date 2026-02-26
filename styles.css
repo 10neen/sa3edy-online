@@ -1,355 +1,177 @@
-/* === الأساسيات === */
+/* 1. الأساسيات والخطوط */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  margin: 0;
-  font-family: 'Cairo', system-ui, sans-serif;
-  background: url("assets/IMGE/promo-1.PNG") no-repeat center center fixed;
-  background-size: cover;
-  color: #fefefe;
-  overflow-x: hidden;
+    font-family: 'Cairo', 'Tajawal', sans-serif; /* إضافة تاجاوال كبديل ممتاز */
+    background: url("assets/IMGE/promo-1.PNG") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow-x: hidden; /* منع الاهتزاز العرضي */
+    scroll-behavior: smooth; /* تنعيم السكرول */
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: -1;
-}
-
-.overlay {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-  background: transparent;
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-}
-
-/* === الأقسام === */
-.section {
-  display: none;
-  background: rgba(255, 255, 255, 0.05);
-  margin: 40px 0;
-  padding: 20px;
-  border-radius: 12px;
-}
-.section h2 {
-  color: #facc15;
-  font-size: 28px;
-  font-weight: bold;
-}
-.section p, .section ul {
-  color: #e2e8f0;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.section-image {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-  border-radius: 12px;
-}
-
-/* === الهيدر === */
-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-h1 {
-  font-size: 36px;
-  color: #facc15;
-  margin: 0;
-}
-.address, .contacts {
-  color: #facc15;
-  margin: 15px 0;
-  font-size: 24px;
-}
-
-/* === الفوتر === */
-footer {
-  text-align: center;
-  margin-top: 60px;
-  font-size: 14px;
-  color: #fefefe;
-}
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-.footer-links a {
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #ffffff;
-  background-color: #1877f2;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-}
-.footer-links a:hover {
-  background-color: #145dbf;
-  color: #facc15;
-  transform: scale(1.05);
-}
-
-
-
-/* === شريط التنقل العلوي === */
+/* 2. الهد الكريستالي الأفقي المطور */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 24px;
-    background: rgba(0, 0, 0, 0.1); /* زيادة شفافية الخلفية قليلاً لتحسين الرؤية */
-    backdrop-filter: blur(5px); /* زيادة التأثير الضبابي */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    flex-wrap: wrap;
-    border-bottom: none;
-}
-
-.navbar-brand {
-    /* تم تحسينه لضمان محاذاة النص والشعار بشكل مثالي */
-    display: flex;
-    align-items: center; /* يضمن محاذاة الشعار والنص عمودياً في المنتصف */
-    gap: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #facc15;
+    padding: 10px 5%;
+    background: rgba(0, 0, 0, 0.2) !important; /* سواد خفيف لزيادة وضوح النصوص */
+    backdrop-filter: blur(10px) !important; /* زيادة الضبابية لإحساس الكريستال */
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed; width: 100%; top: 0; z-index: 2000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s all ease;
 }
 
 .navbar-logo {
-    /* تأكد من أن الشعار الدائري يظهر بشكل مناسب */
-    width: 45px; /* تم زيادته قليلاً ليتناسب مع حجم الخط 24px */
-    height: 45px; /* يجب أن تكون الـ width والـ height متساويتين للشكل الدائري */
-    object-fit: cover; /* لضمان أن الصورة تملأ الأبعاد بدون تشوه */
-    border-radius: 50%; /* هذا ضروري إذا كان الشعار دائرياً */
-    /* قد تحتاج إلى إزالة هذا إذا كان الشعار يحمل بالفعل إطاراً دائرياً */
-    /* border: 2px solid #facc15; */ 
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gold, #ffcc00);
 }
-/* لا داعي لتغيير باقي التنسيقات في هذا الجزء */
-
-
-
 
 .navbar-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
-}
-.navbar-links li a {
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  color: #ffffff;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-  transition: color 0.3s ease;
-}
-.navbar-links li a:hover {
-  color: #facc15;
+    display: flex !important;
+    flex-direction: row !important;
+    list-style: none;
+    gap: 15px;
 }
 
-
-
-
-
-/* === استجابة للموبايل === */
-@media (max-width: 768px) {
-  body {
-    background: url("assets/IMGE/promo-1.PNG") no-repeat center top;
-    background-size: cover;
-    background-attachment: scroll;
-  }
-
-  .overlay {
-    padding: 10px;
-  }
-
-  h1 {
-    font-size: 26px;
-  }
-
-  h2 {
-    font-size: 22px;
-  }
-
-  h3 {
-    font-size: 18px;
-  }
-
-  p, li {
-    font-size: 16px;
-  }
-
-  .address, .contacts {
-    font-size: 20px;
-  }
-
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 16px;
-    background: rgba(0, 0, 0, 0.01);
-  }
-
-  .navbar-links {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .navbar-links li a {
-    font-size: 14px;
-  }
-
-  .footer-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-links a {
-    font-size: 18px;
-    padding: 14px 24px;
-  }
-
-  .invoice-btn {
-    font-size: 20px;
-    padding: 14px 28px;
-  }
+.navbar-links a {
+    color: white; text-decoration: none; font-weight: bold; font-size: 14px;
+    transition: 0.3s;
+    text-shadow: 1px 1px 3px #000;
 }
 
-/* === كروت الخدمات === */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-.service-card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-}
-.service-card h3 {
-  color: #facc15;
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-.service-card p {
-  color: #e2e8f0;
-  font-size: 16px;
+.navbar-links a:hover {
+    color: #ffcc00;
+    transform: translateY(-2px);
 }
 
-/* === كلاس مميز للنصوص المهمة === */
-.highlight {
-  background-color: #facc15;
-  color: #0f172a;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-weight: bold;
+/* 3. الكروت الشفافة (Glassmorphism) */
+.overlay { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh; 
+    padding-top: 80px;
+    background: rgba(0, 0, 0, 0.4); /* طبقة تعتيم فوق الخلفية لراحة العين */
 }
 
-/* === زر الحاسبة الذكية === */
-.invoice-box {
-  background-color: #f9f9f9;
-  border: 2px solid #d4af37;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  margin: 30px auto;
-  max-width: 400px;
-}
-.invoice-title {
-  font-size: 22px;
-  color: #1e293b;
-  margin-bottom: 8px;
-}
-.invoice-subtitle {
-  font-size: 16px;
-  color: #475569;
-  margin-bottom: 16px;
+.main-action-container { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+    padding: 20px; 
+    animation: fadeIn 1s ease-in;
 }
 
-.invoice-btn {
-  display: inline-block;
-  background-color: #1877f2;
-  color: #fff;
-  font-size: 20px;
-  padding: 14px 28px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.invoice-btn:hover {
-  background-color: #145dbf;
-  color: #facc15;
-  transform: scale(1.05);
+.action-card {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px; 
+    padding: 25px; 
+    width: 280px; 
+    text-align: center;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* === زر رابط صور المعرض === */
-.gallery-btn {
-  display: inline-block;
-  background-color: #facc15;
-  color: #0f172a;
-  font-size: 18px;
-  padding: 12px 24px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.gallery-btn:hover {
-  background-color: #eab308;
-  color: #fff;
-  transform: scale(1.05);
+.action-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: #ffcc00;
 }
 
-/* === عرض القسم الرئيسي === */
-#home {
-  display: block;
+/* 4. لوجو الهيدر الكبير */
+.hero-logo { 
+    width: 110px !important; 
+    height: auto !important; 
+    margin-bottom: 15px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
 }
 
-.invoice-box {
-  background-color: #f3f0ff;
-  border: 2px solid #6b21a8;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  margin: 30px auto;
-  max-width: 500px;
-  box-shadow: 0 4px 8px rgba(107, 33, 168, 0.3);
+h1 { 
+    color: #ffcc00; 
+    text-shadow: 2px 2px 8px #000; 
+    font-size: 2.2rem;
+    margin-bottom: 10px;
 }
-.invoice-title {
-  font-size: 22px;
-  color: #4c1d95;
+
+/* 5. الأقسام والفوتر */
+.section { 
+    display: none; 
+    padding: 120px 20px 60px; 
+    text-align: center;
+    min-height: 100vh;
+    background: rgba(0,0,0,0.8); /* خلفية داكنة للأقسام لتركيز النظر على المنتجات */
 }
-.invoice-subtitle {
-  font-size: 16px;
-  color: #6b7280;
+
+.prod-img { 
+    width: 100%;
+    max-width: 300px; 
+    border-radius: 20px; 
+    margin-top: 20px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 3px solid rgba(255,255,255,0.1);
 }
-.invoice-btn {
-  background-color: #6b21a8;
-  color: #fff;
+
+.site-footer { 
+    background: rgba(0,0,0,0.5); 
+    padding: 30px; 
+    text-align: center; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
 }
-.invoice-btn:hover {
-  background-color: #4c1d95;
-  color: #facc15;
+
+/* أزرار الأكشن المطورة */
+.action-btn { 
+    display: block; 
+    width: 100%; 
+    padding: 14px; 
+    margin-top: 15px; 
+    border-radius: 12px; 
+    border: none; 
+    font-weight: 800; 
+    cursor: pointer; 
+    transition: 0.3s;
+    text-decoration: none;
+    font-family: inherit;
+}
+
+.action-btn:active { transform: scale(0.95); }
+
+.chat-btn { 
+    background: linear-gradient(45deg, #25d366, #128c7e); 
+    color: white; 
+    animation: pulse 2s infinite;
+}
+
+.group-btn { background: #0078ff; color: white; }
+.calc-btn { background: #ffcc00; color: black; }
+
+/* تأثير النبض */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* أنيميشن الدخول */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* الموبايل */
+@media (max-width: 600px) {
+    .navbar { padding: 10px 15px; }
+    .navbar-links { gap: 10px; }
+    .navbar-links a { font-size: 12px; }
+    h1 { font-size: 1.6rem; }
+    .action-card { width: 100%; max-width: 320px; }
 }
