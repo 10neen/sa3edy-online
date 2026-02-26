@@ -1,159 +1,126 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> الصعيدي للأدوات الصحية – بشتيل</title>
-  <link rel="icon" href="assets/icons/saidi-logo.PNG" type="image/png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="google-site-verification" content="googleb3143febe547deb1" />
+    
+    <title>الصعيدي للأدوات الصحية – بشتيل</title>
+    
+    <link rel="icon" href="assets/icons/saidi-logo.PNG" type="image/png" />
+<link rel="stylesheet" href="styles.css" />    
+    <style>
+        /* التنسيقات الخاصة بالهوية البصرية */
+        .navbar-logo {
+            width: 45px !important;
+            height: 45px !important;
+            object-fit: cover;
+            border-radius: 50%;
+        }
 
-  <meta name="description" content="خلاطات نحاس، أطقم حمام، مواسير,بي ار,سمارت هوم, كيسيل, صرف صحي بأسعار جملة وقطاعي في بشتيل – الجيزة.">
-  <meta name="keywords" content="أدوات صحيه, خلاطات, أطقم حمام, مواسير, سباكة, سباك, امبابه, الفجاله, سنترال بشتيل, مسجد الرحمن, السبتيه, بشتيل, الجيزة, الصعايده, معرض الصعيدي">
-  <meta name="author" content="حسن العدوي">
+        .hero-logo {
+            width: 120px !important;
+            height: auto !important;
+        }
 
-  <link rel="stylesheet" href="styles.css" />
+        .navbar {
+            background: rgba(255, 255, 255, 0.01) !important;
+            backdrop-filter: blur(0px) !important;
+            -webkit-backdrop-filter: blur(0px) !important;
+        }
+
+        .action-card {
+            background: rgba(255, 255, 255, 0.05) !important;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* تنسيق المساعد الذكي */
+        #chat-window {
+            display: none;
+            position: fixed;
+            bottom: 85px;
+            left: 20px;
+            width: 320px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 3000;
+            overflow: hidden;
+            border: 2px solid #facc15;
+        }
+        
+        .chat-header { background: #1a1a1a; color: #facc15; padding: 15px; text-align: center; font-weight: bold; }
+        #chat-messages { height: 350px; overflow-y: auto; padding: 10px; background: #f9f9f9; color: #000; }
+        .chat-footer { padding: 10px; display: flex; gap: 5px; background: #eee; }
+        .wa-btn { flex: 1; padding: 10px; background: #25d366; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .close-btn { flex: 1; padding: 10px; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer; }
+
+        .section { display: none; padding: 120px 20px 40px; text-align: center; }
+        .prod-img { width: 100%; max-width: 300px; border-radius: 15px; margin-top: 20px; }
+    </style>
 </head>
 <body>
 
-  <!-- ✅ رأس الصفحة -->
-  <nav class="navbar">
-    <div class="navbar-brand">
-      <img src="assets/icons/saidi-logo.PNG" alt="شعار الصعيدي" class="navbar-logo" />
-الصعيدي للادوات الصحيه    </div>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="assets/icons/saidi-logo.PNG" alt="شعار الصعيدي" class="navbar-logo" />
+            <span style="font-weight: bold; color: #facc15; margin-right: 8px;">الصعيدي</span>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#pipes">البولي</a></li>
+            <li><a href="#bathroom">الأطقم</a></li>
+            <li><a href="#mixers">الخلاطات</a></li>
+            <li><a href="#accessories">اكسسوارات</a></li>
+        </ul>
+    </nav>
 
-<ul class="navbar-links">
-  <li><a href="#home">الرئيسية</a></li>
-  <li><a href="#pipes">البولي والصرف</a></li>
-  <li><a href="#bathroom">أطقم الحمام</a></li>
-  <li><a href="#mixers">الخلاطات والنواكل</a></li>
-  <li><a href="#accessories">اكسسوارات</a></li> <!-- ✅ الجديد -->
-  <li><a href="#contact">تواصل معنا</a></li>
-</ul>
+    <div class="overlay" id="home" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+        <header class="hero-header" style="text-align: center;">
+            <img src="assets/icons/saidi-logo.PNG" alt="شعار الصعيدي" class="hero-logo">
+            <h1 style="color: #facc15; text-shadow: 2px 2px 5px #000; font-size: 2.2rem;">معرض الصعيدي للأدوات الصحية</h1>
+            <p style="text-shadow: 1px 1px 3px #000;">بشتيل - شارع مسجد الرحمن بجوار السنترال</p>
+        </header>
 
-  </nav>
-
-  <!-- ✅ الواجهة الرئيسية -->
-  <div class="overlay" id="home">
-    <header>
-      <h1>الصعيدي للادوات الصحيه – مسجد الرحمن بشتيل</h1>
-      <p class="address">شارع مسجد الرحمن بجوار سنترال بشتيل</p>
-      <p class="contacts">حسن العدوي: 01122019099 / أحمد إدريس: 01129777012</p>
-    </header>
-
-    <div class="invoice-box" style="margin-top: 40px;">
-  <h3 class="invoice-title">🧮 احسب فاتورتك بنفسك</h3>
-  <p class="invoice-subtitle">
-    لو السباك كتبلك الطلبات ومش عارف أي فكرة عن الأسعار  
-    احنا عملنالك خدمة الآلة الحاسبة التقريبية للفاتورة  
-    يعني تقدر تعرف السعر في حدود كام وانت قاعد في بيتك  
-    ومتنساش السعر ده قبل الخصم، ومهمتك يا بطل توصل لأحسن مكان يديلك خصم مناسب ليك…  
-    واللي هو إحنا إن شاء الله 💪
-  </p>
-  <a href="https://10neen.github.io/10neen-s3edy-calculator" target="_blank" class="invoice-btn">
-    🧮 احسب فاتورتك الآن
-  </a>
-</div>
-
-
-    <footer>
-      <div class="footer-links">
-        <a href="https://maps.app.goo.gl/aot2FHWTJtXesoPi6" target="_blank">📍 موقع المعرض</a>
-        <a href="https://wa.me/201122019099" target="_blank">💬 واتساب</a>
-        <a href="https://web.facebook.com/als3ydy" target="_blank">📘 فيسبوك</a>
-      </div>
-      <p>© 2025 معرض الصعيدي — تنفيذ <span class="highlight">حسن العدوي</span></p>
-    </footer>
-  </div>
-
-
-<section id="accessories" class="section">
-  <h2>🧰 اكسسوارات والكماليات للحمام والمطبخ</h2>
-  <img src="assets/products/SMART-HOME.png" alt="اكسسوارات حمام ومطبخ" class="section-image" />
-  <img src="assets/products/TANK.png" alt="اكسسوارات حمام ومطبخ" class="section-image" />
-  <img src="assets/products/shot-of.jpg" alt="اكسسوارات حمام ومطبخ" class="section-image" />
-
-
-
-  <p>الاكسسوارات هيا كل الرفايع التي تحتاج اليها لتشطيب حمامك</p>
-  <a href="https://photos.app.goo.gl/5PyEV6KAr3tRoMcN7" target="_blank" class="gallery-btn">📸 عرض صور الاكسسوارات</a>
-</section>
-
-
- <!-- ✅ قسم البولي والصرف -->
-<section id="pipes" class="section">
-  <h2>🚰 مواسير بولي وصرف صحي</h2>
-  <img src="assets/products/EGIC_1.png" alt="مواسير EGIC بولي وصرف صحي" class="section-image" />
-  <p>مواسير بولي بجودة عالية من EGIC – مناسبة للمشاريع والمدارس، متوفرة بأقطار متعددة وأسعار منافسة.</p>
-  <a href="https://photos.app.goo.gl/5PyEV6KAr3tRoMcN7" target="_blank" class="gallery-btn">📸 عرض صور البولي</a>
-</section>
-
-<!-- ✅ قسم أطقم الحمام -->
-<section id="bathroom" class="section">
-  <h2>🛁 أطقم حمامات مودرن</h2>
-  <img src="assets/products/ROSETTA-1.PNG" alt="طقم حمام Rosetta مودرن" class="section-image" />
-  <p>أطقم حمام كاملة  – تصميم عصري، خامات قوية، وضمان فعلي من معرض الصعيدي.</p>
-  <a href="https://photos.app.goo.gl/5PyEV6KAr3tRoMcN7" target="_blank" class="gallery-btn">📸 عرض أطقم الحمام</a>
-</section>
-
-<!-- ✅ قسم الخلاطات والنواكل -->
-<section id="mixers" class="section">
-  <h2>🧴 خلاطات نحاس ونواكل مصرية</h2>
-
-
- <img src="assets/products/rock-mixer.jpg" alt="خلاط نحاس ROCK بجودة عالية" class="section-image" />
-  <p>خلاطات ROCK الأصلية – نحاس ثقيل، طلاء كروم لامع، وضمان مدى الحياة من معرض الصعيدي.</p>
-
-
-  <img src="assets/products/gold-rock-mixer.jpg" alt="خلاط نحاس GOLD-ROCK بجودة عالية" class="section-image" />
-  <p>خلاطات GOLD-ROCKA الأصلية – نحاس ثقيل، طلاء كروم لامع، وضمان مدى الحياة من معرض الصعيدي.</p>
-
-
-
-  <a href="https://photos.app.goo.gl/5PyEV6KAr3tRoMcN7" target="_blank" class="gallery-btn">📸 عرض صور الخلاطات</a>
-</section>
-
-
-
-
-
-  <!-- ✅ التواصل -->
-  <section id="contact" class="section">
-    <h2>📞 تواصل معنا</h2>
-    <p>📞 حسن العدوي: 01122019099</p>
-    <p>📞 أحمد إدريس: 01129777012</p>
-    <div class="footer-links">
-      <a href="https://wa.me/201122019099" target="_blank">💬 واتساب مباشر</a>
-      <a href="https://maps.app.goo.gl/aot2FHWTJtXesoPi6" target="_blank">📍 موقع المعرض</a>
-      <a href="https://photos.app.goo.gl/5PyEV6KAr3tRoMcN7" target="_blank" class="gallery-btn">
-📸 عرض صور المعرض على Google Photos
-</a>
-
+        <div class="main-action-container">
+            <div class="action-card">
+                <div class="card-icon">💬</div>
+                <h3>مساعد الصعيدي</h3>
+                <button onclick="toggleChat()" class="action-btn chat-btn">ابدأ المحادثة</button>
+            </div>
+            <div class="action-card">
+                <div class="card-icon">👥</div>
+                <h3>جروب السباكين</h3>
+                <a href="https://10neen.github.io/grob_els3ydy/" class="action-btn group-btn">دخول الجروب</a>
+            </div>
+            <div class="action-card">
+                <div class="card-icon">🧮</div>
+                <h3>احسب فاتورتك</h3>
+                <a href="https://10neen.github.io/10neen-s3edy-calculator" class="action-btn calc-btn">احسب الآن</a>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- ✅ سكربت التنقل -->
-  <script>
-    const sections = document.querySelectorAll('.section, .overlay');
-    const allLinks = document.querySelectorAll('.navbar-links a');
+    <div id="chat-window">
+        <div class="chat-header">دليل الصعيدي 🛠️</div>
+        <div id="chat-messages"></div>
+        <div class="chat-footer">
+            <button onclick="window.open('https://wa.me/201122019099')" class="wa-btn">واتساب</button>
+            <button onclick="toggleChat()" class="close-btn">إغلاق</button>
+        </div>
+    </div>
 
-    allLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
+    <section id="pipes" class="section"><h2>🚰 مواسير بولي وصرف</h2><img src="assets/products/EGIC_1.png" class="prod-img"></section>
+    <section id="bathroom" class="section"><h2>🛁 أطقم حمامات</h2><img src="assets/products/ROSETTA-1.PNG" class="prod-img"></section>
+    <section id="mixers" class="section"><h2>🧴 الخلاطات</h2><img src="assets/products/rock-mixer.jpg" class="prod-img"></section>
+    <section id="accessories" class="section"><h2>🧰 اكسسوارات</h2><img src="assets/products/SMART-HOME.png" class="prod-img"></section>
 
-        sections.forEach(sec => {
-          sec.style.display = sec.id === targetId ? 'block' : 'none';
-        });
+    <footer class="site-footer" style="text-align: center; padding: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <p>© 2025 معرض الصعيدي — تنفيذ حسن العدوي</p>
+    </footer>
 
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      sections.forEach(sec => {
-        sec.style.display = sec.id === 'home' ? 'block' : 'none';
-      });
-    });
-  </script>
-
+<script src="JavaScript"></script>
 </body>
 </html>
