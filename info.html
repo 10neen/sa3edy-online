@@ -2,118 +2,157 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>عن الصعيدي للأدوات الصحية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --gold: #facc15;
+      --dark: #1a1a1a;
+      --glass: rgba(255, 255, 255, 0.95);
+    }
+    
     body {
       font-family: 'Cairo', sans-serif;
-      background: #f9f9f9;
+      background: #f1f1f1; /* يمكنك تغييرها لصورة لو أردت */
       color: #333;
-      padding: 20px;
+      padding: 0;
+      margin: 0;
       line-height: 1.8;
-      font-size: 18px;
     }
-    h1 {
-      color: #b8860b;
-      font-size: 28px;
+
+    /* هيدر بسيط ومنظم */
+    .info-header {
+      background: var(--dark);
+      color: var(--gold);
+      padding: 40px 20px;
       text-align: center;
-      margin-bottom: 30px;
+      border-bottom: 5px solid var(--gold);
     }
-    a {
-      color: #0077cc;
-      text-decoration: none;
-      font-weight: bold;
+
+    h1 { margin: 0; font-size: 24px; }
+
+    .container {
+      max-width: 1000px;
+      margin: -30px auto 40px;
+      padding: 0 20px;
     }
+
     .main-content {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
-      align-items: flex-start;
+      gap: 20px;
     }
+
+    /* كروت المعلومات */
+    .section {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-right: 5px solid var(--gold);
+    }
+
     .image-side {
       flex: 1;
-      min-width: 280px;
-      text-align: center;
+      min-width: 300px;
     }
+
     .image-side img {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
-    .whatsapp-button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #25D366;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 18px;
-    }
+
     .text-side {
-      flex: 2;
-      min-width: 280px;
+      flex: 1.5;
+      min-width: 300px;
     }
-    .section {
-      margin-bottom: 30px;
-      background-color: #ffffff;
+
+    /* الروابط والأزرار */
+    a { color: #0077cc; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    a:hover { color: var(--gold); }
+
+    .whatsapp-button {
+      display: block;
+      margin-top: 20px;
       padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+      background: #25D366;
+      color: white;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
     }
-    ul {
-      padding-right: 20px;
+
+    .back-btn {
+      display: inline-block;
+      margin: 20px 0;
+      color: var(--dark);
+      font-weight: bold;
+    }
+
+    ul { padding-right: 20px; list-style-type: '✔️ '; }
+    li { margin-bottom: 10px; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 20px; }
+      .container { margin-top: 20px; }
     }
   </style>
 </head>
 <body>
 
-  <h1>معرض الصعيدي للأدوات الصحية – بشتيل، الوراق، امبابة – الجيزة</h1>
+  <header class="info-header">
+    <h1>معرض الصعيدي للأدوات الصحية</h1>
+    <p>الأصل في بشتيل والجيزة</p>
+  </header>
 
-  <div class="main-content">
-    
-    <!-- الصورة على اليمين -->
-    <div class="image-side">
-      <img src="assets/IMGE/M.AUTO_1.PNG" alt="واجهة معرض الصعيدي – بشتيل – الجيزة">
-      <a class="whatsapp-button" href="https://wa.me/201122019099" target="_blank">تواصل عبر واتساب</a>
+  <div class="container">
+    <a href="index.html" class="back-btn">⬅️ العودة للرئيسية</a>
+
+    <div class="main-content">
+      
+      <div class="image-side">
+        <img src="assets/IMGE/M.AUTO_1.PNG" alt="واجهة معرض الصعيدي">
+        <a class="whatsapp-button" href="https://wa.me/201122019099" target="_blank">💬 اطلب استشارة عبر واتساب</a>
+      </div>
+
+      <div class="text-side">
+        <div class="section">
+          <strong>📍 المكان:</strong> بشتيل، شارع مسجد الرحمن. بالقرب من سنترال بشتيل ومحطة قطارات صعيد مصر الجديدة. نخدم (الوراق، امبابة، القومية).
+        </div>
+
+        <div class="section">
+          <strong>📦 توكيل الماركات العالمية:</strong>
+          <ul>
+            <li><strong>بولي وصرف:</strong> الشريف، BR، سمارت، كيسيل.</li>
+            <li><strong>أطقم صحي:</strong> ديورافيت، ليسيكو، جرافينا، إيديال ستاندرد.</li>
+            <li><strong>خلاطات ونواكل:</strong> جروهي، جولد، روك.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <strong>🖼️ جاليري المعرض:</strong>
+          <p>تقدر تشوف صور الشغل الحقيقية "نواكل اقتصادية وفخمة" من هنا:</p>
+          <a href="https://photos.app.goo.gl/5PyEV6KAr3tRoMcN7" target="_blank">👉 معرض الصور على Google Photos</a>
+        </div>
+
+        <div class="section">
+          <strong>🔗 روابط سريعة:</strong>
+          <ul>
+            <li><a href="https://10neen.github.io/10neen-s3edy-calculator">🧮 حاسبة الفواتير الذكية</a></li>
+            <li><a href="https://web.facebook.com/als3ydy">🔵 صفحة الفيسبوك الرسمية</a></li>
+          </ul>
+        </div>
+      </div>
+
     </div>
 
-    <!-- كل الكلام على الشمال -->
-    <div class="text-side">
-      <div class="section">
-        <strong>📍 العنوان:</strong> شارع مسجد الرحمن - بجوار سنترال بشتيل - منظقة الوراق وامبابه ومحطة قطار بشتيل ومترو القوميه 
-      </div>
-
-      <div class="section">
-        <strong>📞 التواصل:</strong> 01122019099 / <a href="https://wa.me/01122019099" target="_blank">واتساب مباشر</a>
-      </div>
-
-      <div class="section">
-        <strong>📦 المنتجات المتاحة:</strong>  
-        مواسير، محابس، دش، بانيو، خزانات، مطابخ، حمامات، أكسسوارات، سباكة، سباك، أسعار، سعر  
-        ماركات أصلية: جرافينا، ليسيكو، ديورافيت، جروهي، جولد، الشريف، بي أر وسمارت وكيسيل ، بولي، إيديال
-      </div>
-
-      <div class="section">
-        <strong>📍 نخدم المناطق التالية:</strong>  
-        بشتيل، امبابه، امبابة، الجيزه، الجيزة، السبتيه، السبتية، الفجاله، الفجالة، القوميه، القومية، المترو، مزلقان بشتيل، شارع مسجد الرحمن، المطحن، الدائري، القاهرة
-      </div>
-
-      <div class="section">
-        <strong>🖼️ صور المعرض:</strong>  
-        📸 شاهد صور منتجات "نواكل اقتصادية" على Google Photos  
-        <a href="https://photos.app.goo.gl/5PyEV6KAr3tRoMcN7" target="_blank">اضغط هنا لعرض الصور</a>
-      </div>
-
-      <div class="section">
-        <strong>🔗 روابط مهمة:</strong>  
-        <ul>
-          <li><a href="https://10neen.github.io/sa3edy-online/" target="_blank">الموقع الرسمي على GitHub</a></li>
-          <li><a href="https://web.facebook.com/als3ydy" target="_blank">صفحة الفيسبوك</a></li>
-          <li><a href="https://10neen.github.io/10neen-s3edy-calculator" target="_blank">الفاتورة الذكية</a></li>
-        </ul>
-      </div>
-    </div>
-
+    <footer style="text-align: center; margin-top: 40px; color: #888; font-size: 14px;">
+      معرض الصعيدي - خدمة تليق بثقتكم منذ سنوات
+    </footer>
   </div>
 
 </body>
