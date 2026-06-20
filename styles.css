@@ -1,177 +1,313 @@
-/* 1. الأساسيات والخطوط */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* ==========================================================================
+   تطوير وتحديث كود CSS - معرض الصعيدي للأدوات الصحية (نسخة خفيفة وسريعة جداً)
+   ========================================================================== */
 
-body {
-    font-family: 'Cairo', 'Tajawal', sans-serif; /* إضافة تاجاوال كبديل ممتاز */
-    background: url("assets/IMGE/promo-1.PNG") no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    overflow-x: hidden; /* منع الاهتزاز العرضي */
-    scroll-behavior: smooth; /* تنعيم السكرول */
+/* 1. استدعاء خط Cairo الاحترافي من Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
+/* إعادة ضبط عامة لتحسين الأداء وسرعة التحميل */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* تطبيق خط Cairo على كل عناصر الموقع */
+    font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth; /* انتقال سلس بين الأقسام */
 }
 
-/* 2. الهد الكريستالي الأفقي المطور */
+body {
+    background-color: #121212; /* خلفية داكنة مريحة للعين */
+    color: #ffffff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* شريط التنقل العلوي المتجاوب */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 5%;
-    background: rgba(0, 0, 0, 0.2) !important; /* سواد خفيف لزيادة وضوح النصوص */
-    backdrop-filter: blur(10px) !important; /* زيادة الضبابية لإحساس الكريستال */
-    -webkit-backdrop-filter: blur(10px);
-    position: fixed; width: 100%; top: 0; z-index: 2000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.3s all ease;
+    padding: 0 5%;
+    z-index: 2000;
+    border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .navbar-logo {
-    width: 42px !important;
-    height: 42px !important;
-    border-radius: 50%;
+    width: 45px;
+    height: 45px;
     object-fit: cover;
-    border: 2px solid var(--gold, #ffcc00);
+    border-radius: 50%;
+    border: 1px solid #facc15;
+}
+
+.brand-name {
+    font-weight: 700;
+    color: #facc15;
+    font-size: 1.2rem;
+    transition: font-size 0.3s ease;
 }
 
 .navbar-links {
-    display: flex !important;
-    flex-direction: row !important;
+    display: flex;
     list-style: none;
-    gap: 15px;
+    gap: 20px;
 }
 
 .navbar-links a {
-    color: white; text-decoration: none; font-weight: bold; font-size: 14px;
-    transition: 0.3s;
-    text-shadow: 1px 1px 3px #000;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 .navbar-links a:hover {
-    color: #ffcc00;
-    transform: translateY(-2px);
+    color: #facc15;
 }
 
-/* 3. الكروت الشفافة (Glassmorphism) */
-.overlay { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    min-height: 100vh; 
-    padding-top: 80px;
-    background: rgba(0, 0, 0, 0.4); /* طبقة تعتيم فوق الخلفية لراحة العين */
+/* الواجهة الرئيسية المضيئة والواضحة */
+.hero-section {
+    min-height: 100vh;
+    padding: 140px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(18, 18, 18, 0.3), rgba(18, 18, 18, 0.5)), 
+                url('assets/IMGE/promo-1.PNG') no-repeat center center/cover;
+    background-attachment: scroll; 
 }
 
-.main-action-container { 
-    display: flex; 
-    justify-content: center; 
-    gap: 20px; 
-    flex-wrap: wrap; 
-    padding: 20px; 
-    animation: fadeIn 1s ease-in;
-}
-
-.action-card {
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px; 
-    padding: 25px; 
-    width: 280px; 
+.hero-header {
     text-align: center;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-bottom: 40px;
 }
 
-.action-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.15) !important;
-    border-color: #ffcc00;
-}
-
-/* 4. لوجو الهيدر الكبير */
-.hero-logo { 
-    width: 110px !important; 
-    height: auto !important; 
+.hero-logo {
+    width: 100px;
+    height: auto;
     margin-bottom: 15px;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
 }
 
-h1 { 
-    color: #ffcc00; 
-    text-shadow: 2px 2px 8px #000; 
-    font-size: 2.2rem;
+.main-title {
+    font-weight: 900;
+    font-size: clamp(1.8rem, 5vw, 2.8rem); /* حجم مرن يتغير حسب الشاشة تلقائياً */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
     margin-bottom: 10px;
 }
 
-/* 5. الأقسام والفوتر */
-.section { 
-    display: none; 
-    padding: 120px 20px 60px; 
-    text-align: center;
-    min-height: 100vh;
-    background: rgba(0,0,0,0.8); /* خلفية داكنة للأقسام لتركيز النظر على المنتجات */
+.sub-title {
+    font-weight: 600;
+    font-size: clamp(0.95rem, 3vw, 1.25rem);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    color: #e0e0e0;
 }
 
-.prod-img { 
+/* حاوية الكروت المتناسقة للموقع */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
     width: 100%;
-    max-width: 300px; 
-    border-radius: 20px; 
-    margin-top: 20px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border: 3px solid rgba(255,255,255,0.1);
+    max-width: 1000px;
+    padding: 0 10px;
 }
 
-.site-footer { 
-    background: rgba(0,0,0,0.5); 
-    padding: 30px; 
-    text-align: center; 
-    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+.action-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* أزرار الأكشن المطورة */
-.action-btn { 
-    display: block; 
-    width: 100%; 
-    padding: 14px; 
-    margin-top: 15px; 
-    border-radius: 12px; 
-    border: none; 
-    font-weight: 800; 
-    cursor: pointer; 
-    transition: 0.3s;
+/* حركة الكروت عند مرور الماوس (تعمل بسلاسة ولا تسبب ثقل للموبايل) */
+.action-card:hover {
+    transform: translateY(-5px);
+    border-color: #facc15;
+    box-shadow: 0 8px 20px rgba(250, 204, 21, 0.15);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.action-card h3 {
+    color: #facc15;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.card-desc {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    margin-bottom: 20px;
+    min-height: 40px;
+}
+
+/* الأزرار الموحدة */
+.action-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
     text-decoration: none;
-    font-family: inherit;
+    transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.action-btn:active { transform: scale(0.95); }
-
-.chat-btn { 
-    background: linear-gradient(45deg, #25d366, #128c7e); 
-    color: white; 
-    animation: pulse 2s infinite;
+.group-btn, .calc-btn {
+    background: #facc15;
+    color: #121212;
 }
 
-.group-btn { background: #0078ff; color: white; }
-.calc-btn { background: #ffcc00; color: black; }
-
-/* تأثير النبض */
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+.action-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(250, 204, 21, 0.3);
 }
 
-/* أنيميشن الدخول */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* تنسيق كروت التواصل الجديدة الخاصة بالإدارة والتوزيع */
+.contact-cards-container {
+    box-sizing: border-box;
 }
 
-/* الموبايل */
-@media (max-width: 600px) {
-    .navbar { padding: 10px 15px; }
-    .navbar-links { gap: 10px; }
-    .navbar-links a { font-size: 12px; }
-    h1 { font-size: 1.6rem; }
-    .action-card { width: 100%; max-width: 320px; }
+.contact-card {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    border-color: #facc15 !important;
+}
+
+.contact-card a {
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.contact-card a:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+/* قسم من نحن */
+.about-section {
+    background: #1a1a1a;
+    padding: 60px 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.section-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-section h2 {
+    color: #facc15;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about-text {
+    color: #cccccc;
+    font-size: 1rem;
+}
+
+.gallery-title {
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* شبكة عرض الصور المتجاوبة والذكية */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    background: #222222;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item h4 {
+    color: #facc15;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.prod-img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain; 
+    border-radius: 8px;
+    background: #ffffff; 
+    padding: 5px;
+}
+
+/* تذييل الموقع */
+.site-footer {
+    text-align: center;
+    padding: 25px;
+    background: #121212;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.9rem;
+    color: #777777;
+}
+
+/* دعم شاشات الموبايل المتكامل وتخفيف الحمل على الأجهزة القديمة */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 10px;
+    }
+    .navbar-links {
+        gap: 12px;
+    }
+    .navbar-links a {
+        font-size: 0.85rem;
+    }
+    .navbar-logo {
+        width: 35px;
+        height: 35px;
+    }
+    .brand-name {
+        font-size: 1rem; /* يظل الاسم ظاهراً بشكل أصغر ومناسب */
+    }
+    .services-container {
+        grid-template-columns: 1fr; /* ترتيب عمودي مريح للموبايل */
+    }
+    .hero-section {
+        padding: 120px 15px 40px; /* تقليص الحواف لراحة العين على الموبايل */
+    }
 }
