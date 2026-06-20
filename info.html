@@ -3,102 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
   <title>عن الصعيدي للأدوات الصحية</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --gold: #facc15;
       --dark: #1a1a1a;
-      --glass: rgba(255, 255, 255, 0.95);
+      --light-bg: #f8f9fa;
+      --card-white: #ffffff;
+      --text-main: #2d3748;
     }
     
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Cairo', sans-serif;
-      background: #f1f1f1; /* يمكنك تغييرها لصورة لو أردت */
-      color: #333;
-      padding: 0;
-      margin: 0;
+      background: var(--light-bg);
+      color: var(--text-main);
       line-height: 1.8;
     }
 
-    /* هيدر بسيط ومنظم */
+    /* هيدر منظم واحترافي */
     .info-header {
       background: var(--dark);
       color: var(--gold);
-      padding: 40px 20px;
+      padding: 45px 20px;
       text-align: center;
       border-bottom: 5px solid var(--gold);
     }
 
-    h1 { margin: 0; font-size: 24px; }
+    .info-header h1 { 
+      margin: 0 0 5px 0; 
+      font-size: clamp(1.4rem, 4vw, 1.8rem); 
+      font-weight: 900;
+    }
+    
+    .info-header p {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+    }
 
     .container {
-      max-width: 1000px;
-      margin: -30px auto 40px;
-      padding: 0 20px;
+      max-width: 1050px;
+      margin: -25px auto 40px;
+      padding: 0 15px;
+    }
+
+    /* زر العودة الانسيابي */
+    .back-btn-box {
+      margin-bottom: 15px;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 700;
+      background: var(--card-white);
+      padding: 6px 14px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+    }
+    
+    .back-btn:hover {
+      color: #0077cc;
+      transform: translateX(-3px);
     }
 
     .main-content {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 25px;
     }
 
-    /* كروت المعلومات */
+    /* كروت المعلومات البيضاء المحسنة */
     .section {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
+      background: var(--card-white);
+      padding: 22px;
+      border-radius: 16px;
       margin-bottom: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
       border-right: 5px solid var(--gold);
+      border-left: 1px solid #edf2f7;
+      border-top: 1px solid #edf2f7;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .section strong {
+      color: var(--dark);
+      font-size: 1.05rem;
     }
 
     .image-side {
-      flex: 1;
-      min-width: 300px;
+      flex: 1 1 320px;
+      max-width: 100%;
+    }
+
+    .img-container {
+      background: var(--card-white);
+      padding: 8px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      border: 1px solid #edf2f7;
     }
 
     .image-side img {
       width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      height: auto;
+      border-radius: 12px;
+      display: block;
     }
 
     .text-side {
-      flex: 1.5;
-      min-width: 300px;
+      flex: 1.5 1 420px;
     }
 
     /* الروابط والأزرار */
-    a { color: #0077cc; text-decoration: none; font-weight: bold; transition: 0.3s; }
-    a:hover { color: var(--gold); }
+    a { color: #0077cc; text-decoration: none; font-weight: bold; transition: color 0.2s ease; }
+    a:hover { color: var(--dark); }
 
     .whatsapp-button {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       margin-top: 20px;
-      padding: 15px;
+      padding: 14px;
       background: #25D366;
       color: white;
       border-radius: 12px;
       text-align: center;
       font-weight: bold;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+      transition: transform 0.2s ease;
     }
-
-    .back-btn {
-      display: inline-block;
-      margin: 20px 0;
-      color: var(--dark);
-      font-weight: bold;
+    
+    .whatsapp-button:hover {
+      transform: scale(1.02);
+      color: white;
     }
 
     ul { padding-right: 20px; list-style-type: '✔️ '; }
-    li { margin-bottom: 10px; }
+    li { margin-bottom: 12px; }
+    li strong { color: #4a5568; }
 
-    @media (max-width: 600px) {
-      h1 { font-size: 20px; }
-      .container { margin-top: 20px; }
+    @media (max-width: 768px) {
+      .container { margin-top: 15px; }
+      .main-content { flex-direction: column; }
+      .image-side, .text-side { flex: 1 1 100%; }
     }
   </style>
 </head>
@@ -110,23 +177,27 @@
   </header>
 
   <div class="container">
-    <a href="index.html" class="back-btn">⬅️ العودة للرئيسية</a>
+    <div class="back-btn-box">
+      <a href="index.html" class="back-btn">⬅️ العودة للرئيسية</a>
+    </div>
 
     <div class="main-content">
       
       <div class="image-side">
-        <img src="assets/IMGE/M.AUTO_1.PNG" alt="واجهة معرض الصعيدي">
+        <div class="img-container">
+          <img src="assets/IMGE/M.AUTO_1.PNG" alt="واجهة معرض الصعيدي" loading="lazy">
+        </div>
         <a class="whatsapp-button" href="https://wa.me/201122019099" target="_blank">💬 اطلب استشارة عبر واتساب</a>
       </div>
 
       <div class="text-side">
         <div class="section">
-          <strong>📍 المكان:</strong> بشتيل، شارع مسجد الرحمن. بالقرب من سنترال بشتيل ومحطة قطارات صعيد مصر الجديدة. نخدم (الوراق، امبابة، القومية).
+          <strong>📍 المكان والنطاق:</strong> بشتيل، شارع مسجد الرحمن. بالقرب من سنترال بشتيل ومحطة قطارات صعيد مصر الجديدة. نخدم بكل فخر: (الوراق، إمبابة، القومية).
         </div>
 
         <div class="section">
-          <strong>📦 توكيل الماركات العالمية:</strong>
-          <ul>
+          <strong>📦 توكيل الماركات العالمية والمحلية:</strong>
+          <ul style="margin-top: 8px;">
             <li><strong>بولي وصرف:</strong> الشريف، BR، سمارت، كيسيل.</li>
             <li><strong>أطقم صحي:</strong> ديورافيت، ليسيكو، جرافينا، إيديال ستاندرد.</li>
             <li><strong>خلاطات ونواكل:</strong> جروهي، جولد، روك.</li>
@@ -134,24 +205,26 @@
         </div>
 
         <div class="section">
-          <strong>🖼️ جاليري المعرض:</strong>
-          <p>تقدر تشوف صور الشغل الحقيقية "نواكل اقتصادية وفخمة" من هنا:</p>
-          <a href="https://photos.app.goo.gl/5PyEV6KAr3tRoMcN7" target="_blank">👉 معرض الصور على Google Photos</a>
+          <strong>🖼️ جاليري المعرض الحقيقي:</strong>
+          <p>تقدر تشوف صور الشغل والخامات على الطبيعة "نواكل اقتصادية وفخمة" من هنا:</p>
+          <p style="margin-top: 8px;">
+            <a href="https://photos.app.goo.gl/5PyEV6KAr3tRoMcN7" target="_blank">👉 تصفح ألبوم الصور على Google Photos</a>
+          </p>
         </div>
 
         <div class="section">
-          <strong>🔗 روابط سريعة:</strong>
-          <ul>
-            <li><a href="https://10neen.github.io/10neen-s3edy-calculator">🧮 حاسبة الفواتير الذكية</a></li>
-            <li><a href="https://web.facebook.com/als3ydy">🔵 صفحة الفيسبوك الرسمية</a></li>
+          <strong>🔗 روابط سريعة ومساعدة:</strong>
+          <ul style="margin-top: 8px;">
+            <li><a href="https://10neen.github.io/10neen-s3edy-calculator" target="_blank">🧮 حاسبة الفواتير الذكية للمعرض</a></li>
+            <li><a href="https://web.facebook.com/als3ydy" target="_blank">🔵 صفحة الفيسبوك الرسمية</a></li>
           </ul>
         </div>
       </div>
 
     </div>
 
-    <footer style="text-align: center; margin-top: 40px; color: #888; font-size: 14px;">
-      معرض الصعيدي - خدمة تليق بثقتكم منذ سنوات
+    <footer style="text-align: center; margin-top: 50px; color: #a0aec0; font-size: 14px; border-top: 1px solid #e2e8f0; padding-top: 20px;">
+      معرض الصعيدي - خدمة تليق بثقتكم منذ سنوات ومستمرون معكم
     </footer>
   </div>
 
