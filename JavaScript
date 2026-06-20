@@ -1,116 +1,62 @@
-// 1. نظام التنقل بين الأقسام (مع لمسة انسيابية)
-const sections = document.querySelectorAll('.section, .overlay');
-const allLinks = document.querySelectorAll('.navbar-links a');
+/* ==========================================================================
+   تطوير وتحديث كود JavaScript - معرض الصعيدي للأدوات الصحية
+   ========================================================================== */
 
-allLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href').substring(1);
-        if (targetId.startsWith('http')) return; 
-        
-        e.preventDefault();
-        
-        // تأثير اختفاء تدريجي قبل التبديل
-        document.body.style.opacity = '0.8';
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.section, .overlay');
+    const allLinks = document.querySelectorAll('.navbar-links a');
+
+    // دالة مرنة لتبديل الأقسام بسلاسة تامة دون إجهاد المعالج
+    function switchSection(targetId) {
+        if (!targetId || targetId.startsWith('http')) return false;
+
+        // تأثير اختفاء تدريجي سريع ومريح للعين
+        document.body.style.opacity = '0.85';
         
         setTimeout(() => {
             sections.forEach(sec => {
                 if (sec.id === targetId) {
+                    // تشغيل القسم المطلوب بناءً على نوعه
                     sec.style.display = (targetId === 'home') ? 'flex' : 'block';
-                    // إضافة أنيميشن الدخول من CSS
-                    sec.style.animation = 'fadeInSection 0.5s ease-out forwards';
+                    sec.style.animation = 'fadeInSection 0.4s ease-out forwards';
                 } else {
                     sec.style.display = 'none';
+                    sec.style.animation = 'none';
                 }
             });
+            
             document.body.style.opacity = '1';
+            // صعود انسيابي لأعلى الصفحة الجديدة
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 100);
-    });
-});
+        }, 80);
 
-// 2. قائمة الأسئلة والأجوبة (تم الإبقاء على محتواك القوي)
-const faqList = [
-    { q: "مصنعيات السباكة كام وليه بتختلف؟", a: "المصنعيه بتتحسب بتكلفه اليوم + مكسب يوم، متوسط يوم العمل حوالي 2600 جنيه للحمام والمطبخ، وتزيد لو المواعيد محدودة." },
-    { q: "ليه السباك بيوجهني لشركة معينة؟", a: "بسبب نظام 'البونص' أو العروض، لكن أغلب الشركات المعتمدة جودتها ممتازة والفرق في خدمة ما بعد البيع." },
-    { q: "أجيب خامات غالية ولا وسط؟", a: "المدفون داخل الحيط لازم يكون أنظف حاجة بضمان. التشطيب الخارجي حسب ذوقك وميزانيتك." },
-    { q: "في شركات بتدي ضمان 50 سنه؟", a: "القانون المصري يعتمد 10 سنين فقط. الـ 50 سنة هي عمر افتراضي. الأفضل الضمان المعتمد من شركات التأمين." },
-    { q: "إزاي أضمن إن الشغل ميسربش؟", a: "اطلب كبس المواسير من مندوب الشركة المعتمد قبل المحارة لاستلام شهادة الضمان." },
-    { q: "أعمل إيه لو الحنفية بتنقط مية؟", a: "لو الخلاط 'قلب'، التغيير سهل ومش محتاج سباك؛ فك اليد وغيّر القلب بقلب نحاس أصلي." },
-    { q: "إزاي أحافظ على الصرف من الانسداد؟", a: "نصيحة: بلاش إلقاء الزيوت في الحوض. استخدم مية مغلية وملح كل أسبوع كوقاية طبيعية." },
-    { q: "الموتور مش بيفصل والكهرباء بتزيد؟", a: "غالباً العيب في 'البلونة' أو 'الأوتوماتيك'. لازم فني يشوف ضغط الهوا فوراً عشان الموتور ميتحرقش." },
-    { q: "إيه أفضل نوع محابس زاوية؟", a: "هات نوع نحاس تقيل (إيطالي أو تركي معتمد) وبلاش الأنواع الرخيصة لأنها بتتكسر جوه الحيط." },
-    { q: "السخان بياخد وقت طويل عشان يسخن؟", a: "ده معناه إن 'الهيتر' عليه أملاح. تنظيف السخان كل سنة بيوفر كهرباء وبيطول عمره." },
-    { q: "محتاج سباك شاطر في المنطقة؟", a: "نورنا في 'جروب السباكين' هتلاقي فنيين بشتيل والوراق والاتفاق مسئوليتكم." }
-];
-
-// 3. وظيفة الشات بوت (تفاعلية)
-function toggleChat() {
-    const chatWin = document.getElementById('chat-window');
-    if (chatWin.style.display === 'none' || chatWin.style.display === '') {
-        chatWin.style.display = 'block';
-        chatWin.style.animation = 'fadeInSection 0.3s ease-out';
-        renderFAQ();
-    } else {
-        chatWin.style.display = 'none';
+        return true;
     }
-}
 
-function renderFAQ() {
-    const chatBody = document.getElementById('chat-messages');
-    if (!chatBody) return;
-    
-    chatBody.innerHTML = `
-        <div style="background:#fff3cd; padding:10px; border-radius:10px; font-size:12px; margin-bottom:15px; border:1px solid #ffeeba; color:#856404;">
-            اهلا بيك في دليل الصعيدي.. اسألنا عن أي حاجة في السباكة 👇
-        </div>
-    `; 
-    
-    faqList.forEach((item, index) => {
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'faq-item';
-        itemDiv.style = "margin-bottom: 10px; border-radius: 12px; overflow: hidden; border: 1px solid #eee; background:#fff; transition:0.3s;";
-        
-        itemDiv.innerHTML = `
-            <div onclick="toggleAnswer(${index})" style="cursor:pointer; font-weight:bold; color:#333; font-size:13px; display:flex; justify-content:space-between; align-items:center; padding:15px;">
-                <span style="text-align:right; flex:1;">${item.q}</span>
-                <span id="icon-${index}" style="color:#facc15; font-size:20px; margin-right:10px;">+</span>
-            </div>
-            <div id="ans-${index}" style="display:none; font-size:13px; color:#666; line-height:1.6; background:#f9f9f9; padding:15px; border-top: 1px solid #f1f1f1; text-align:right;">
-                ${item.a}
-            </div>
-        `;
-        chatBody.appendChild(itemDiv);
-    });
-}
-
-function toggleAnswer(index) {
-    const ans = document.getElementById(`ans-${index}`);
-    const icon = document.getElementById(`icon-${index}`);
-    const allAnswers = document.querySelectorAll('[id^="ans-"]');
-    const allIcons = document.querySelectorAll('[id^="icon-"]');
-
-    // غلق أي سؤال آخر مفتوح (تجربة مستخدم أفضل)
-    allAnswers.forEach((el, i) => {
-        if (i !== index) {
-            el.style.display = 'none';
-            allIcons[i].innerText = '+';
-            allIcons[i].style.color = '#facc15';
-        }
+    // استماع لجميع ضغطات أزرار القائمة العلوية
+    allLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // التأكد أن الرابط داخلي (يبدأ بـ #) وليس رابطاً خارجياً كالواتساب أو الخريطة
+            if (href && href.startsWith('#')) {
+                const targetId = href.substring(1);
+                if (switchSection(targetId)) {
+                    e.preventDefault();
+                    // تحديث رابط المتصفح العلوي بدون إعادة تحميل
+                    history.pushState(null, null, href);
+                }
+            }
+        });
     });
 
-    if (ans.style.display === 'none') {
-        ans.style.display = 'block';
-        icon.innerText = '−';
-        icon.style.color = '#e74c3c';
-    } else {
-        ans.style.display = 'none';
-        icon.innerText = '+';
-        icon.style.color = '#facc15';
-    }
-}
+    // دعم زرار الرجوع (Back) في الموبايل ليتنقل بين الأقسام بدلاً من الخروج من الموقع
+    window.addEventListener('popstate', () => {
+        const currentHash = window.location.hash ? window.location.hash.substring(1) : 'home';
+        switchSection(currentHash);
+    });
 
-// تشغيل الصفحة
-document.addEventListener('DOMContentLoaded', () => {
+    // تشغيل الصفحة الافتتاحية (الرئيسية) فور انتهاء التحميل
     sections.forEach(sec => {
         sec.style.display = (sec.id === 'home') ? 'flex' : 'none';
     });
