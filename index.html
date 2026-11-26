@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVFY0076RZ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -11,11 +12,8 @@
 
     <meta name="google-site-verification" content="googleb3143febe547deb1" />
 
-
-
     <meta name="description" content="معرض الصعيدي للأدوات الصحية في بشتيل وإمبابة - نوفر بولي وصرف بي ار وسمارت وكيسيل، ديورافيت، جروهي، أسعار السباكة جملة وقطاعي، وحاسبة الفواتير الذكية، وجروب فنيين سباكة." />
     <meta name="keywords" content="الصعيدي, الصعيدى, الصعيدي للأدوات الصحية, الصعيدى للادوات الصحيه, سباكة, سباكه, سباكه بشتيل, سباكة بشتيل, ادوات صحية, ادوات صحيه, الفجالة, الفجاله, السبتية, السبتيه, اسعار السباكة, اسعار السباكه, مواسير ولوازم بي ار, مواسير ولوازم سمارت هوم, مواسير ولوازم كيسيل, ديورافيت, ليسيكو, سانيبيور, إيديال ستاندرد, جروهي, خلاطات, خلاط روك, امبابة, امبابه, الوراق, القومية, القوميه, بشتيل الجيزة, بشتيل الجيزه, حاسبة السباكة, حاسبه السباكه, فواتير السباكة, فني سباكة, فنى سباكه, ارخص ادوات صحية, محطة قطارات صعيد مصر, شارع مسجد الرحمن, احمد ادريس, حسن العدوي, حسن العدوى" />
-
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,41 +21,7 @@
     <title>الصعيدي للأدوات الصحية – بشتيل</title>
     
     <link rel="icon" href="assets/icons/saidi-logo.PNG" type="image/png" />
-    <link rel="stylesheet" href="styles.css" />    
-    
-    <style>
-        /* الخطوط الأساسية المتوافقة مع التصميم الهجين */
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
-        
-        body {
-            font-family: 'Cairo', sans-serif;
-        }
-        
-        /* إضافات مرونة الصور وتأمين الجاليري */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            padding: 15px;
-        }
-        
-        .gallery-item {
-            background: #222;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .prod-img {
-            width: 100%;
-            height: auto;
-            max-height: 200px;
-            object-fit: contain;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -71,10 +35,11 @@
             <li><a href="#plumber">اطلب سباك</a></li>
             <li><a href="#calculator">احسب فاتورتك</a></li>
             <li><a href="#about">من نحن</a></li>
+            <li><a href="info.html">تفاصيل المعرض</a></li>
         </ul>
     </nav>
 
-    <main class="hero-section" id="home">
+    <main class="hero-section page-block" id="home">
         <header class="hero-header">
             <img src="assets/icons/saidi-logo.PNG" alt="معرض الصعيدي للادوات الصحيه والسباكه" class="hero-logo" />
             <h1 class="main-title">معرض الصعيدي للأدوات الصحية</h1>
@@ -83,57 +48,55 @@
 
         <div class="services-container">
             <div class="action-card" id="plumber">
-                <div class="card-icon">👥</div>
+                <span class="card-badge">فنيون ومقاولون</span>
                 <h3>جروب السباكين والفنيين</h3>
                 <p class="card-desc">تواصل مع أمهر الفنيين والسباكين مباشرة في بشتيل والجيزة</p>
-                <a href="https://10neen.github.io/grob_els3ydy/" target="_blank" class="action-btn group-btn">دخول الجروب</a>
+                <a href="https://10neen.github.io/grob_els3ydy/" target="_blank" rel="noopener noreferrer" class="action-btn group-btn">دخول الجروب</a>
             </div>
 
             <div class="action-card" id="calculator">
-                <div class="card-icon">🧮</div>
+                <span class="card-badge">تقدير فوري</span>
                 <h3>احسب فاتورتك الذكية</h3>
                 <p class="card-desc">احسب تكلفة أدواتك الصحية وخامات السباكة بدقة وسهولة</p>
-                <a href="https://10neen.github.io/10neen-s3edy-calculator" target="_blank" class="action-btn calc-btn">احسب الآن</a>
+                <a href="https://10neen.github.io/10neen-s3edy-calculator" target="_blank" rel="noopener noreferrer" class="action-btn calc-btn">احسب الآن</a>
             </div>
         </div>
     </main>
 
-    <section id="about" class="page-section about-section" style="padding: 40px 15px; background: #1a1a1a; color: #fff; box-sizing: border-box;">
-        <div class="section-container" style="width: 100%; max-width: 1000px; margin: 0 auto; text-align: center; box-sizing: border-box;">
+    <section id="about" class="page-section about-section page-block">
+        <div class="section-container">
             <h2>🏠 من نحن</h2>
             
-            <p class="about-text" style="font-size: clamp(1rem, 4vw, 1.25rem); color: #facc15; max-width: 850px; margin: 0 auto 30px; line-height: 1.8; font-weight: bold; padding: 0 10px;">
+            <p class="about-text about-highlight">
                 نحن الصعيدي للأدوات الصحية بمسجد الرحمن بشتيل إمبابة بجوار سنترال بشتيل — لتجارة الأدوات الصحية والسباكة جملة وقطاعي في القاهرة الكبرى بأسعار الفجالة والسبتية.
             </p>
 
-            <div class="contact-cards-container" style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 50px; width: 100%; box-sizing: border-box; padding: 0 10px;">
-                
-                <div class="contact-card" style="background: #222; border: 1px solid #333; padding: 20px; border-radius: 12px; flex: 1 1 340px; max-width: 420px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); box-sizing: border-box;">
-                    <h3 style="color: #aaa; margin: 0 0 8px 0; font-size: 1rem; font-weight: normal;">التوزيع للجملة</h3>
-                    <p style="color: #facc15; font-weight: bold; font-size: 1.3rem; margin: 0 0 20px 0;">أحمد إدريس</p>
-                    <div style="display: flex; gap: 12px; justify-content: center; width: 100%;">
-                        <a href="tel:01129777012" style="background: #007bff; color: #fff; text-decoration: none; padding: 10px 0; border-radius: 8px; font-size: 0.95rem; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex: 1; min-width: 100px;">
+            <div class="contact-cards-container">
+                <div class="contact-card">
+                    <h3 class="contact-role">التوزيع للجملة</h3>
+                    <p class="contact-name">أحمد إدريس</p>
+                    <div class="contact-actions">
+                        <a href="tel:01129777012" class="contact-btn call-btn">
                             📞 إتصال
                         </a>
-                        <a href="https://wa.me/201129777012" target="_blank" style="background: #25d366; color: #fff; text-decoration: none; padding: 10px 0; border-radius: 8px; font-size: 0.95rem; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex: 1; min-width: 100px;">
+                        <a href="https://wa.me/201129777012" target="_blank" rel="noopener noreferrer" class="contact-btn whatsapp-btn-sm">
                             💬 واتساب
                         </a>
                     </div>
                 </div>
 
-                <div class="contact-card" style="background: #222; border: 1px solid #333; padding: 20px; border-radius: 12px; flex: 1 1 340px; max-width: 420px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); box-sizing: border-box;">
-                    <h3 style="color: #aaa; margin: 0 0 8px 0; font-size: 1rem; font-weight: normal;">الإدارة بالمعرض</h3>
-                    <p style="color: #facc15; font-weight: bold; font-size: 1.3rem; margin: 0 0 20px 0;">حسن العدوي</p>
-                    <div style="display: flex; gap: 12px; justify-content: center; width: 100%;">
-                        <a href="tel:01122019099" style="background: #007bff; color: #fff; text-decoration: none; padding: 10px 0; border-radius: 8px; font-size: 0.95rem; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex: 1; min-width: 100px;">
+                <div class="contact-card">
+                    <h3 class="contact-role">الإدارة بالمعرض</h3>
+                    <p class="contact-name">حسن العدوي</p>
+                    <div class="contact-actions">
+                        <a href="tel:01122019099" class="contact-btn call-btn">
                             📞 إتصال
                         </a>
-                        <a href="https://wa.me/201122019099" target="_blank" style="background: #25d366; color: #fff; text-decoration: none; padding: 10px 0; border-radius: 8px; font-size: 0.95rem; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex: 1; min-width: 100px;">
+                        <a href="https://wa.me/201122019099" target="_blank" rel="noopener noreferrer" class="contact-btn whatsapp-btn-sm">
                             💬 واتساب
                         </a>
                     </div>
                 </div>
-
             </div>
             
             <h3 class="gallery-title">📸 معرض المنتجات والخامات المتوفرة</h3>
@@ -156,22 +119,16 @@
                 </div>
             </div>
 
-
-
-            <h3 class="gallery-title" style="margin-top: 50px;">📍 موقعنا على الخريطة</h3>
-            <p class="about-text" style="font-size: 0.95rem; color: #aaa; margin-bottom: 20px;">معرض الصعيدي - شارع مسجد الرحمن بجوار السنترال</p>
+            <h3 class="gallery-title map-title">📍 موقعنا على الخريطة</h3>
+            <p class="about-text map-caption">معرض الصعيدي - شارع مسجد الرحمن بجوار السنترال</p>
             
-            <div style="width: 100%; max-width: 600px; margin: 0 auto 25px; border-radius: 12px; overflow: hidden; border: 2px solid #facc15; box-shadow: 0 6px 15px rgba(0,0,0,0.4); padding: 0; box-sizing: border-box;">
-                <img src="assets/IMGE/map-location.PNG" alt="خريطة موقع معرض الصعيدي" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            <div class="map-frame">
+                <img src="assets/IMGE/map-location.PNG" alt="خريطة موقع معرض الصعيدي" class="map-img" loading="lazy" />
             </div>
 
-<!-- الرابط الجغرافي المباشر والمضمون 100% بدون اختصار -->
-<a href="https://www.google.com/maps?q=الصعيدي+للأدوات+الصحية+مسجد+الرحمن+بشتيل" target="_blank" class="action-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 340px; margin: 0 auto; background: #25d366; color: #fff; font-weight: bold; text-decoration: none; padding: 14px 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); box-sizing: border-box; font-size: 0.95rem;">
-    🗺️ افتح الموقع في تطبيق Google Maps
-</a>
-
-
-
+            <a href="https://www.google.com/maps?q=الصعيدي+للأدوات+الصحية+مسجد+الرحمن+بشتيل" target="_blank" rel="noopener noreferrer" class="action-btn map-btn">
+                🗺️ افتح الموقع في تطبيق Google Maps
+            </a>
         </div>
     </section>
 
