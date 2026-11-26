@@ -1,63 +1,64 @@
 /* ==========================================================================
-   تطوير وتحديث كود JavaScript - معرض الصعيدي للأدوات الصحية
+   كود JavaScript المنقح - معرض الصعيدي للأدوات الصحية (script.js)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.section, .overlay');
-    const allLinks = document.querySelectorAll('.navbar-links a');
+    const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.navbar-links a');
 
-    // دالة مرنة لتبديل الأقسام بسلاسة تامة دون إجهاد المعالج
-    function switchSection(targetId) {
-        if (!targetId || targetId.startsWith('http')) return false;
-
-        // تأثير اختفاء تدريجي سريع ومريح للعين
-        document.body.style.opacity = '0.85';
-        
-        setTimeout(() => {
-            sections.forEach(sec => {
-                if (sec.id === targetId) {
-                    // تشغيل القسم المطلوب بناءً على نوعه
-                    sec.style.display = (targetId === 'home') ? 'flex' : 'block';
-                    sec.style.animation = 'fadeInSection 0.4s ease-out forwards';
-                } else {
-                    sec.style.display = 'none';
-                    sec.style.animation = 'none';
-                }
-            });
-            
-            document.body.style.opacity = '1';
-            // صعود انسيابي لأعلى الصفحة الجديدة
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 80);
-
-        return true;
-    }
-
-    // استماع لجميع ضغطات أزرار القائمة العلوية
-    allLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+    // التنقل السلس للروابط الداخلية مع تعويض ارتفاع الشريط العلوي
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            
-            // التأكد أن الرابط داخلي (يبدأ بـ #) وليس رابطاً خارجياً كالواتساب أو الخريطة
-            if (href && href.startsWith('#')) {
-                const targetId = href.substring(1);
-                if (switchSection(targetId)) {
+
+            // التنفيذ فقط للروابط الداخلية التي تبدأ بـ #
+            if (href && href.startsWith('#') && href.length > 1) {
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
                     e.preventDefault();
-                    // تحديث رابط المتصفح العلوي بدون إعادة تحميل
+                    const navbarHeight = navbar ? navbar.offsetHeight : 70;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight - 10;
+
+                    window.scrollTo({
+                        top: Math.max(0, targetPosition),
+                        behavior: 'smooth'
+                    });
+
+                    // تحديث الرابط في المتصفح بدون إعادة تحميل
                     history.pushState(null, null, href);
                 }
             }
         });
     });
 
-    // دعم زرار الرجوع (Back) في الموبايل ليتنقل بين الأقسام بدلاً من الخروج من الموقع
-    window.addEventListener('popstate', () => {
-        const currentHash = window.location.hash ? window.location.hash.substring(1) : 'home';
-        switchSection(currentHash);
-    });
+    // تمييز الرابط النشط في القائمة حسب موقع التمرير الحالي
+    const trackedIds = ['home', 'plumber', 'calculator', 'about'];
 
-    // تشغيل الصفحة الافتتاحية (الرئيسية) فور انتهاء التحميل
-    sections.forEach(sec => {
-        sec.style.display = (sec.id === 'home') ? 'flex' : 'none';
-    });
+    function updateActiveLink() {
+        const navbarHeight = navbar ? navbar.offsetHeight : 70;
+        const scrollPosition = window.scrollY + navbarHeight + 60;
+        let currentId = 'home';
+
+        trackedIds.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                const top = el.getBoundingClientRect().top + window.scrollY;
+                if (scrollPosition >= top) {
+                    currentId = id;
+                }
+            }
+        });
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === `#${currentId}`) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
 });
